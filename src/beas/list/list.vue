@@ -14,7 +14,7 @@
       <div class="toplist">
         <h2 class="top-h2"><span>热作排行</span></h2>
         <ul class="top-ul" ref="ul">
-          <li v-for="(list,index) in filteredItems" class="top-list"  @mouseenter="hover(1,index)" @mouseleave="hover(-1,index)">
+          <li v-for="(list,index) in filteredItems" class="top-list"  @mouseenter="hover(1,index)" @mouseleave="hover(-1,index)" @click="detail(list.content_action)">
             <h4 class="top-h4" :class="[{curr:index == currIndex}]">{{list.content_title}}<span class="ri"><b>{{list.content_rating | splice(list.content_rating)}}</b><span>{{list.content_rating | number(list.content_rating)}}</span></span></h4>
             <ul class="show" :class="[{fl:index == currIndex}]">
               <li>
@@ -37,7 +37,7 @@
     <div class="new">
       <h2 class="new-h2"><i class="fa fa-newspaper-o" aria-hidden="true"></i><span>今日更新</span></h2>
       <ul class="htoUl">
-        <li v-for="(list,index) in this.hot" class="hotLi">
+        <li v-for="(list,index) in this.hot" class="hotLi" @click="detail(list.content_action)">
           <img :src="'https://cdn.comicool.cn/'+list.content_poster">
           <h3 class="hot-h3">{{list.content_title}}</h3>
           <p class="hot-p">{{list.content_subtitle}}
@@ -174,7 +174,7 @@
             }
             .hot-p {
               font-size: .8rem;
-              line-height: 1.2;
+              line-height: 1.4;
               .over(1);
               height: 1.2rem;
               color: #aeaeae;
@@ -263,7 +263,6 @@
                   position: relative;
                   .title-p {
                     -webkit-line-clamp: 3;
-
                     display: -webkit-box;
                     -webkit-box-orient: vertical;
                     overflow: hidden;

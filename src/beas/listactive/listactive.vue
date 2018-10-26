@@ -9,8 +9,8 @@
         </li>
       </ul>
     </div>
-    <div v-for="(list,index) in item" class="selectCont"  v-show=" index == active" >
-      <div v-for="(item,index) in list.comi_list" class="sel">
+    <div v-for="(list,index) in item" class="selectCont"  v-show=" index == active">
+      <div v-for="(item,index) in list.comi_list" class="sel" @click="detail(item.comic_id)">
         <div class="rank-txt">
           <i class="goode">{{index+1}}</i>
           <h3>{{item.comic_title}}</h3>
@@ -39,6 +39,15 @@
       this._getRightTab()
     },
     methods:{
+      detail(name){
+        this.$router.go(0)
+        this.$router.push({
+          path:'/detail',
+          query:{
+            detailId:name
+          }
+        })
+      },
       _getRightTab(){
         rightTab().then((res) => {
           this.item=res.rank_list

@@ -77,7 +77,7 @@
         })
       },
       _getDetailJson(){
-        detailcont(this.id).then((res) => {
+        detailcont(this.$route.query.detailId).then((res) => {
           this.info=res.comic_info
           this.list=res.ep_list
         })

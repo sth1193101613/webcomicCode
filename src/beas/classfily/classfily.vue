@@ -99,6 +99,7 @@
         this.Index=index;
       },
       rou(num){
+        this.cont=[]
         conts(num).then((res) => {
           this.cont=res.content_list
         })

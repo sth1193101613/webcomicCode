@@ -55,5 +55,8 @@ export default new Router({
       name: '漫画详情',
       component: (resolve) => require(['../components/detailCont/cont.vue'], resolve),
     }
-  ]
+  ],
+
 })
+
+
